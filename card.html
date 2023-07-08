@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device->width">
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <title>01</title>
+  <style>
+    #container{
+  width:408px;
+  margin:auto;
+  display:flex;
+  flex-wrap:wrap;
+}
+#container div{
+  width:100px;
+  height:100px;
+  background-color:#333;
+  color:#333;
+  text-align:center;
+  font-size:2.5rem;
+  margin:1px;
+  line-height:2.5;
+}
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <p id="msg"></p>
+  <script>
+    $(function () {
+        let kigo = ['!', '#', '$', '%', '&', '=', '@', '+', '!', '#', '$', '%', '&', '=', '@', '+'];
+        let sels = [];
+
+        //配列のシャッフル
+        for (let i = 0; i < 20; i++) {
+          let r1 = Math.floor(Math.random() * 16);
+          let r2 = Math.floor(Math.random() * 16);
+          let tmp = kigo[r1];
+          kigo[r1] = kigo[r2];
+          kigo[r2] = tmp;
+        }
+        //カードの配布
+        for (let i = 0; i < 16; i++) {
+          let ko = $("<div>").text(kigo[i]);
+          $("#container").append(ko);
+        }
+        //クリック時イベントの登録
+        $("#container div").on("click", function () {
+          $(this).css("color", "#fff");
+          let moji = $(this).text();
+          sels.push(moji);
+          if (sels.length == 2) {
+            //比較判定
+            if (sels[0] == sels[1]) {
+              $("#msg").text("OK!");
+            } else {
+              $("#msg").text("NG!");
+            }
+            sels = [];//初期化
+          }
+        });
+      });
+  </script>
+</body>
+</html>
