@@ -4,8 +4,8 @@ const ctx = canvas.getContext("2d");
 // 1
 let x = canvas.width / 2; // ボールの初期位置を設定している。 (canvasの横幅 ➗ 2 = 中央)
 let y = canvas.height - 30; // ボールの初期位置を設定している。 (canvasの下から30px = 下からスタート)
-let dx = 2; //x方向（左右）の移動量を設定している。
-let dy = -2; //y方向（上下）の移動量を設定している。
+let dx = 2; //x方向(=direction)（左右）の移動量を設定している。
+let dy = -2; //y方向(=direction)（上下）の移動量を設定している。
 
 // //2
 // function draw() {
@@ -25,6 +25,7 @@ let dy = -2; //y方向（上下）の移動量を設定している。
 // setInterval(draw, 10); // 0.01秒毎にdrawが実行される
 
 
+//5
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, 10, 0, Math.PI * 2);
@@ -33,6 +34,7 @@ function drawBall() {
   ctx.closePath();
 }
 
+//5
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBall();

@@ -71,7 +71,7 @@ function drawBar() {
 }
 
 //3
-function drawblocks() {
+function drawBlocks() {
   for (let c = 0; c < blockColumnCount; c++) {
     for (let r = 0; r < blockRowCount; r++) {
       //4
@@ -99,7 +99,7 @@ function drawblocks() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   //4
-  drawblocks();
+  drawBlocks();
   drawBall();
   drawBar();
 

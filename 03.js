@@ -11,7 +11,6 @@ const ballRadius = 10; //円の半径
 
 function drawBall() {
   ctx.beginPath();
-  //ctx.arc(x, y, 10, 0, Math.PI * 2);
   ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
   ctx.fillStyle = "#FFF";
   ctx.fill();
