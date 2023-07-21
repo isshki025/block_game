@@ -78,8 +78,10 @@ function drawBlocks() {
         const blockX = c * (blockWidth + blockPadding) + blockOffsetLeft;
         const blockY = r * (blockHeight + blockPadding) + blockOffsetTop;
 
+        //1
         blocks[c][r].x = blockX;
         blocks[c][r].y = blockY;
+
         ctx.beginPath();
         ctx.rect(blockX, blockY, blockWidth, blockHeight);
         ctx.fillStyle = "#FFF";
@@ -90,7 +92,7 @@ function drawBlocks() {
   }
 }
 
-//1
+//1 collisionDetection = 衝突検出
 function collisionDetection() {
   for (let c = 0; c < blockColumnCount; c++) {
     for (let r = 0; r < blockRowCount; r++) {

@@ -106,6 +106,7 @@ function collisionDetection() {
     }
   }
 }
+//1
 function checkAllBlocksBroken() {
   for (let c = 0; c < blockColumnCount; c++) {
     for (let r = 0; r < blockRowCount; r++) {
@@ -127,24 +128,26 @@ function draw() {
   if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
     dx = -dx;
   }
-  // if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
-  //   dy = -dy;
-  // }
+
   //2
-  // if (y + dy < ballRadius) {
-  //   dy = -dy;
-  // } else if (y + dy > canvas.height - ballRadius) {
-  //   alert("GAME OVER");
-  //   document.location.reload();
-  //   clearInterval(interval);
+
+  // if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) {
+  //   if (x > barX && x < barX + barWidth) {
+  //     dy = -dy;
+  //   } else {
+  //     alert("GAME OVER");
+  //     document.location.reload();
+  //     clearInterval(interval);
+  //   }
   // }
+
   //3
-  if (y + dy < ballRadius) {
+  if (y + dy < ballRadius) { //上辺に達した時
     dy = -dy;
-  } else if (y + dy > canvas.height - ballRadius) {
-    if (x > barX && x < barX + barWidth) {
+  } else if (y + dy > canvas.height - ballRadius) { //下辺に達した時
+    if (x > barX && x < barX + barWidth) { //バーの右端から左端の間にx(ボール)があった場合
       dy = -dy;
-    } else {
+    } else { //バーの右端から左端の間にボールがない場合
       alert("GAME OVER");
       document.location.reload();
       clearInterval(interval);
@@ -166,4 +169,4 @@ function draw() {
 }
 
 //1
-const interval = setInterval(draw, 10);
+const interval = setInterval(draw, 10); //リセット用に変数化

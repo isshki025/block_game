@@ -5,12 +5,14 @@ let x = canvas.width / 2;
 let y = canvas.height - 30;
 let dx = 2;
 let dy = -2;
-//1
+//2
 const ballRadius = 10; //円の半径
 
 
 function drawBall() {
   ctx.beginPath();
+  //ctx.arc(x, y, 10, 0, Math.PI * 2);
+  //2
   ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
   ctx.fillStyle = "#FFF";
   ctx.fill();
@@ -20,7 +22,7 @@ function drawBall() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBall();
-  //2
+  //1
   // if (y + dy < 0) { //yの座標が0未満になったら (画面の一番上よりも上に行こうとしたら)
   //   dy = -dy;
   // }
@@ -28,7 +30,7 @@ function draw() {
   //   dy = -dy;
   // }
 
-  //3
+  //1
   // if (y + dy > canvas.height || y + dy < 0) {
   //   dy = -dy;
   // }
@@ -36,6 +38,7 @@ function draw() {
   //   dx = -dx;
   // }
 
+  //3
   if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) { //半径も考慮して計算する
     dx = -dx;
   }
